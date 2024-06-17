@@ -56,8 +56,8 @@ function writeResults(results, version) {
             result_code: result.result.filter(item => item.confidence >= 0.8).map(item => item.code), 
             expected_desc: result.expected.description, 
             result_desc: result.result.filter(item => item.confidence >= 0.8).map(item => item.description), 
-            code_hit: result.result.filter(item => item.code == result.expected.value).length >= 1 ? 'TRUE' : 'FALSE',
-            desc_hit: result.result.filter(item => item.description == result.expected.description).length >= 1 ? 'TRUE' : 'FALSE',
+            code_hit: result.result.filter(item => item.code == result.expected.value).length >= 1 ? 'yes' : 'no',
+            desc_hit: result.result.filter(item => item.description == result.expected.description).length >= 1 ? 'yes' : 'no',
             time: result.time});
     });
     workbook.xlsx.writeFile(`results_${version}.xlsx`);
